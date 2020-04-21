@@ -58,10 +58,8 @@ class AlbumCollectionViewController: UIViewController {
         fetchRequest.sortDescriptors = [sortDescriptor]
         fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
                                                               managedObjectContext: dataController.viewContext,
-                                                              sectionNameKeyPath: nil, cacheName: "photo")
+                                                              sectionNameKeyPath: nil, cacheName: nil)
         fetchedResultsController.delegate = self
-        print(fetchedResultsController.cacheName!)
-        print(fetchedResultsController.fetchedObjects?.count ?? 0)
         
         do {
             try fetchedResultsController.performFetch()
@@ -69,6 +67,7 @@ class AlbumCollectionViewController: UIViewController {
             fatalError("The fetch could not be performed: \(error.localizedDescription)")
         }
     }
+    
     func showAlert(title: String, message: String){
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
@@ -122,7 +121,7 @@ class AlbumCollectionViewController: UIViewController {
                                             }
                                         }
                                         
-                                        print("capi")
+                                        print("sv")
                                     }
                                 }
                                 self.activityIndicator.isHidden = true

@@ -33,12 +33,6 @@ class MapViewController: UIViewController {
         refreshData()
     }
     
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-    }
-    
-    
     @IBAction func longPressOnMap(_ sender: UILongPressGestureRecognizer) {
         if sender.state == .began {
             noticeLabel.text = "OK"

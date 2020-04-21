@@ -35,7 +35,7 @@ extension AlbumCollectionViewController: UICollectionViewDelegate, UICollectionV
                             try self.dataController.viewContext.save()
                             
                         } catch {
-                            print("error in saving image data")
+                            debugPrint("error in saving image data")
                         }
                         
                         let image = UIImage(data: imageData)!
@@ -43,7 +43,6 @@ extension AlbumCollectionViewController: UICollectionViewDelegate, UICollectionV
                     }
                 }
             }
-            
         } else {
             if let imageData = photoData.imageData {
                 let image = UIImage(data: imageData)!
